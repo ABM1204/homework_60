@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+    <h1>Categories</h1>
+    <ul class="list-group">
+        {% for category in categories %}
+        <li class="list-group-item">
+            <strong>{{ category.name }}</strong>
+            <div class="float-right">
+                <a href="{% url 'category_edit_view' category.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'delete_category_view' category.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
