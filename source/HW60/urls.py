@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from online_shop import views
+from online_shop.views import CartView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +32,7 @@ urlpatterns = [
     path('product/<int:pk>/edit/', views.ProductUpdateView.as_view(), name='product_edit_view'),
     path('product/<int:pk>/delete/', views.ProductDeleteView.as_view(), name='delete_product_view'),
 
-    path('product/add_to_cart/<int:pk>/', views.add_to_cart, name='add_to_cart')
+    path('product/add_to_cart/<int:pk>/', views.add_to_cart, name='add_to_cart'),
+    path('cart/', views.CartView.as_view(), name='cart_view'),
+    path('cart/remove/<int:pk>/', views.remove_from_cart, name='remove_from_cart'),
 ]
