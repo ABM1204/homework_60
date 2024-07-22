@@ -17,6 +17,10 @@
                     <a href="{% url 'product_view' product.id %}" class="btn btn-primary">View Details</a>
                     <a href="{% url 'product_edit_view' product.id %}" class="btn btn-primary">Edit</a>
                     <a href="{% url 'delete_product_view' product.id %}" class="btn btn-danger">Delete</a>
+                    <form action="{% url 'add_to_cart' product.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>

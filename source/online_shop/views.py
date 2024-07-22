@@ -1,7 +1,8 @@
 from django.db.models import Q
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Category, Product
+from .models import Category, Product, CartItem
 from .forms import ProductForm
 
 class CategoryListView(ListView):
@@ -70,3 +71,12 @@ class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'product_delete.html'
     success_url = reverse_lazy('products_view')
+
+
+def add_to_cart(request, pk):
+    product = Product.objects.get(pk=pk)
+    cart_item, created = CartItem.objects.get_or_create(product=product)
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    return redirect('products_view')
