@@ -101,9 +101,14 @@ class CartView(ListView):
                     product=item.product,
                     quantity=item.quantity
                 )
+                product = item.product
+                product.remainder -= item.quantity
+                product.save()
             cart_items.delete()
             return redirect('products_view')
         return self.get(request, *args, **kwargs)
+
+
 
 def add_to_cart(request, pk):
     product = Product.objects.get(pk=pk)
@@ -117,3 +122,5 @@ def remove_from_cart(request, pk):
     cart_item = CartItem.objects.get(pk=pk)
     cart_item.delete()
     return redirect('cart_view')
+
+
