@@ -314,6 +314,114 @@
     }
 },
 {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add Cart Item",
+        "content_type": 9,
+        "codename": "add_cartitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change Cart Item",
+        "content_type": 9,
+        "codename": "change_cartitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete Cart Item",
+        "content_type": 9,
+        "codename": "delete_cartitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view Cart Item",
+        "content_type": 9,
+        "codename": "view_cartitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add Order",
+        "content_type": 10,
+        "codename": "add_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change Order",
+        "content_type": 10,
+        "codename": "change_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete Order",
+        "content_type": 10,
+        "codename": "delete_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view Order",
+        "content_type": 10,
+        "codename": "view_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add Order Item",
+        "content_type": 11,
+        "codename": "add_orderitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change Order Item",
+        "content_type": 11,
+        "codename": "change_orderitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete Order Item",
+        "content_type": 11,
+        "codename": "delete_orderitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view Order Item",
+        "content_type": 11,
+        "codename": "view_orderitem"
+    }
+},
+{
     "model": "auth.user",
     "pk": 1,
     "fields": {
@@ -396,6 +504,30 @@
     }
 },
 {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "online_shop",
+        "model": "cartitem"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "online_shop",
+        "model": "order"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "online_shop",
+        "model": "orderitem"
+    }
+},
+{
     "model": "sessions.session",
     "pk": "a0ojl4ig0hfvq3lm0nc96oqe6gvucegb",
     "fields": {
@@ -429,7 +561,7 @@
         "add_time": "2024-07-21T16:57:49.384Z",
         "price": "1500.00",
         "image": "https://asiastore.kg/image/cache/catalog/iphone/iphone15/15pro/naturaltitanium/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en-1200x1200.jpg",
-        "remainder": "10.00"
+        "remainder": "8.00"
     }
 },
 {
@@ -468,7 +600,7 @@
         "add_time": "2024-07-21T17:40:54.911Z",
         "price": "50000.00",
         "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Audi_A3_8Y_Sedan_IMG_5936.jpg",
-        "remainder": "5.00"
+        "remainder": "4.00"
     }
 },
 {
@@ -481,20 +613,90 @@
         "add_time": "2024-07-21T17:42:08.393Z",
         "price": "5000.00",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrpu4Bzp882zm3lZYPz38VG2yHMRHIj8EfXQ&s",
-        "remainder": "2.00"
+        "remainder": "1.00"
     }
 },
 {
     "model": "online_shop.product",
-    "pk": 6,
+    "pk": 7,
+    "fields": {
+        "name": "XXX",
+        "description": "dsaldmsaldmsal",
+        "category": 1,
+        "add_time": "2024-07-21T18:00:14.728Z",
+        "price": "7640.00",
+        "image": "https://cdn.cms-twdigitalassets.com/content/dam/legal-twitter/sharing-card.png.twimg.768.png",
+        "remainder": "0.00"
+    }
+},
+{
+    "model": "online_shop.product",
+    "pk": 9,
     "fields": {
         "name": "Shevrolet",
-        "description": "dmsadmsalkdm",
+        "description": "dsakldalskdnaslkdsankldn",
         "category": 2,
-        "add_time": "2024-07-21T17:43:11.161Z",
-        "price": "50000.00",
-        "image": "https://parkers-images.bauersecure.com/wp-images/21327/cut-out/930x620/camaro_coupe.jpg",
-        "remainder": "1.00"
+        "add_time": "2024-07-22T12:32:56.563Z",
+        "price": "100000.00",
+        "image": "https://i.infocar.ua/i/12/1125/1400x936.jpg",
+        "remainder": "3.00"
+    }
+},
+{
+    "model": "online_shop.order",
+    "pk": 1,
+    "fields": {
+        "user_name": "Bekzat",
+        "phone": "+996707324357",
+        "address": "Panfilsov str.145",
+        "created_at": "2024-07-22T12:22:09.680Z"
+    }
+},
+{
+    "model": "online_shop.order",
+    "pk": 2,
+    "fields": {
+        "user_name": "Daniel",
+        "phone": "+996996996996",
+        "address": "dsjadkjashdkjndjksa",
+        "created_at": "2024-07-22T12:31:06.267Z"
+    }
+},
+{
+    "model": "online_shop.order",
+    "pk": 3,
+    "fields": {
+        "user_name": "Roza",
+        "phone": "+996996996999",
+        "address": "asmdnsakjdnaksjd",
+        "created_at": "2024-07-22T12:33:46.485Z"
+    }
+},
+{
+    "model": "online_shop.orderitem",
+    "pk": 1,
+    "fields": {
+        "order": 1,
+        "product": 1,
+        "quantity": 2
+    }
+},
+{
+    "model": "online_shop.orderitem",
+    "pk": 2,
+    "fields": {
+        "order": 2,
+        "product": 4,
+        "quantity": 1
+    }
+},
+{
+    "model": "online_shop.orderitem",
+    "pk": 3,
+    "fields": {
+        "order": 3,
+        "product": 1,
+        "quantity": 2
     }
 }
 ]
