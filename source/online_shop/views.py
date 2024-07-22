@@ -2,8 +2,9 @@ from django.db.models import Q
 from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Category, Product, CartItem
-from .forms import ProductForm
+from .models import Category, Product, CartItem, OrderItem
+from .forms import ProductForm, OrderForm
+
 
 class CategoryListView(ListView):
     model = Category
@@ -81,9 +82,28 @@ class CartView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         cart_items = CartItem.objects.all()
-        total = sum(item.product.price * item.quantity for item in cart_items)
+        for item in cart_items:
+            item.total_price = item.product.price * item.quantity
+        total = sum(item.total_price for item in cart_items)
+        context['cart_items'] = cart_items
         context['total'] = total
+        context['order_form'] = OrderForm()
         return context
+
+    def post(self, request, *args, **kwargs):
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save()
+            cart_items = CartItem.objects.all()
+            for item in cart_items:
+                OrderItem.objects.create(
+                    order=order,
+                    product=item.product,
+                    quantity=item.quantity
+                )
+            cart_items.delete()
+            return redirect('products_view')
+        return self.get(request, *args, **kwargs)
 
 def add_to_cart(request, pk):
     product = Product.objects.get(pk=pk)
