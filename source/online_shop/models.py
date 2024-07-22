@@ -37,3 +37,31 @@ class CartItem(models.Model):
     class Meta:
         verbose_name = 'Cart Item'
         verbose_name_plural = 'Cart Items'
+
+
+class Order(models.Model):
+    user_name = models.CharField(max_length=100, verbose_name='User Name')
+    phone = models.CharField(max_length=15, verbose_name='Phone')
+    address = models.CharField(max_length=255, verbose_name='Address')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created At')
+    products = models.ManyToManyField(Product, through='OrderItem')
+
+    def __str__(self):
+        return f"Order {self.id} by {self.user_name}"
+
+    class Meta:
+        verbose_name = 'Order'
+        verbose_name_plural = 'Orders'
+
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"{self.quantity} x {self.product.name} in order {self.order.id}"
+
+    class Meta:
+        verbose_name = 'Order Item'
+        verbose_name_plural = 'Order Items'

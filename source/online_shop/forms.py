@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product
+from .models import Product, Order
 
 
 class ProductForm(forms.ModelForm):
@@ -12,3 +12,10 @@ class ProductForm(forms.ModelForm):
         if remainder < 0:
             raise forms.ValidationError("Remainder cannot be less than 0.")
         return remainder
+
+
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['user_name', 'phone', 'address']
